@@ -71,3 +71,20 @@ reactioncommerce:reaction-sample-data   # default Reaction data
 # Themes
 reactioncommerce:default-theme          # default Reaction theme
 #my:custom-theme
+underscore
+momentjs:moment
+reactive-var
+random
+email
+vsivsi:job-collection
+kadira:blaze-layout
+velocityjs:velocityjs
+servicelocale:geoip
+mdg:geolocation
+http
+fezvrasta:bootstrap-material-design
+modweb:arrive
+fortawesome:fontawesome
+rajit:bootstrap3-datepicker@1.4.1
+service-configuration
+

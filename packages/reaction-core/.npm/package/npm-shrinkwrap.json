@@ -4,19 +4,19 @@
       "version": "4.3.2",
       "dependencies": {
         "lodash._baseclone": {
-          "version": "4.5.3"
+          "version": "4.5.5"
         },
         "lodash._stack": {
-          "version": "4.1.1"
+          "version": "4.1.3"
         },
         "lodash.isplainobject": {
-          "version": "4.0.3"
+          "version": "4.0.4"
         },
         "lodash.keysin": {
           "version": "4.1.3"
         },
         "lodash.rest": {
-          "version": "4.0.1"
+          "version": "4.0.2"
         }
       }
     },
@@ -24,13 +24,13 @@
       "version": "4.2.0",
       "dependencies": {
         "lodash._baseuniq": {
-          "version": "4.5.0",
+          "version": "4.5.1",
           "dependencies": {
             "lodash._createset": {
-              "version": "4.0.1"
+              "version": "4.0.2"
             },
             "lodash._setcache": {
-              "version": "4.1.1"
+              "version": "4.1.3"
             }
           }
         }
