@@ -2,7 +2,9 @@
 !.gitignore
 
 !my-custom-theme-template
+!custom-reminders
 !my-custom-theme-template/*
+!custom-reminders/*
 
 !reaction-accounts
 !reaction-analytics
