@@ -16,7 +16,7 @@
 !reaction-default-theme
 !reaction-inventory
 !reaction-layout
-!reaction-logging
+!reaction-logger
 !reaction-product-simple
 !reaction-sample-data
 !reaction-schemas
@@ -28,7 +28,6 @@
 !reaction-product-variant
 !reaction-checkout
 !reaction-i18n
-!reaction-layout
 !reaction-dashboard
 !reaction-orders
 
@@ -44,6 +43,7 @@
 !reaction-default-theme/*
 !reaction-inventory/*
 !reaction-layout/*
+!reaction-logger/*
 !reaction-product-simple/*
 !reaction-sample-data/*
 !reaction-schemas/*
@@ -57,6 +57,5 @@
 !reaction-product-variant/*
 !reaction-checkout/*
 !reaction-i18n/*
-!reaction-layout/*
 !reaction-dashboard/*
 !reaction-orders/*
