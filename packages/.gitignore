@@ -3,8 +3,10 @@
 
 !my-custom-theme-template
 !custom-reminders
+!custom-transformicons
 !my-custom-theme-template/*
 !custom-reminders/*
+!custom-transformicons/*
 
 !reaction-accounts
 !reaction-analytics
