@@ -10,7 +10,7 @@
 
 // Template.layout.replaces("coreLayout");
  Template.layout.replaces("coreLayout");
- Template.layoutHeaderCustom.replaces("layoutHeader");
+ //Template.layoutHeaderCustom.replaces("layoutHeader");
  Template.indieProducts.replaces("products");
  Template.indieProductListGrid.replaces("productListGrid");
  Template.indieHeaderBrand.replaces("headerBrand");
