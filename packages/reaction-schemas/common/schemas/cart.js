@@ -29,6 +29,11 @@ ReactionCore.Schemas.CartItem = new SimpleSchema({
     label: "Product Type",
     type: String,
     optional: true
+  },
+  recipients: {
+    label: "Recipients",
+    type: [String],
+    optional: true
   }
 });
 

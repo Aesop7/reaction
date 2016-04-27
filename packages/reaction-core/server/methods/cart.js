@@ -281,9 +281,10 @@ Meteor.methods({
    *  @param {Number} [itemQty] - qty to add to cart
    *  @return {Number|Object} Mongo insert response
    */
-  "cart/addToCart": function (productId, variantId, itemQty) {
+  "cart/addToCart": function (productId, variantId, recipient, itemQty) {
     check(productId, String);
     check(variantId, String);
+    check(recipient, String);
     check(itemQty, Match.Optional(Number));
 
     const { Log } = ReactionCore;
@@ -336,6 +337,9 @@ Meteor.methods({
       }, {
         $inc: {
           "items.$.quantity": quantity
+        },
+        $push: {
+          "items.$.recipients": recipient
         }
       }, function (error, result) {
         if (error) {
@@ -366,6 +370,7 @@ Meteor.methods({
           shopId: product.shopId,
           productId: productId,
           quantity: quantity,
+          recipients: [recipient],
           variants: variant,
           type: product.type
         }
