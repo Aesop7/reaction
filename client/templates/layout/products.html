@@ -1,0 +1,20 @@
+<template name="indieProducts">
+  {{#unless invited}}
+    {{> inviteForm}}
+  {{else}}
+    {{>productGrid}}
+  {{/unless}}
+</template>
+
+<template name="indieProductListGrid">
+  <div class="row">
+  {{#unless invited}}
+    {{> inviteForm}}
+  {{else}}
+    {{>productGrid}}
+    {{#if hasPermission "createProduct"}}
+      {{>productList}}
+    {{/if}}
+  {{/unless}}
+  </div>
+</template>
