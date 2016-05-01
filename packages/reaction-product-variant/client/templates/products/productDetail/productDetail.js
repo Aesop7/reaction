@@ -121,6 +121,11 @@ Template.productDetail.events({
     let quantity;
     let currentVariant = ReactionProduct.selectedVariant();
     let currentProduct = ReactionProduct.selectedProduct();
+    let recipient = template.$('input:radio[name=envelope]:checked').val();
+    if (!recipient) {
+      recipient = 'not provided';
+    }
+    console.log(recipient);
 
     if (currentVariant) {
       if (currentVariant.ancestors.length === 1) {
@@ -162,7 +167,7 @@ Template.productDetail.events({
         productId = currentProduct._id;
 
         if (productId) {
-          Meteor.call("cart/addToCart", productId, currentVariant._id, quantity,
+          Meteor.call("cart/addToCart", productId, currentVariant._id, recipient, quantity,
             function (error) {
               if (error) {
                 ReactionCore.Log.error("Failed to add to cart.", error);
