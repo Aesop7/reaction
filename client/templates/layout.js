@@ -9,7 +9,7 @@
 
 
 // Template.layout.replaces("coreLayout");
-Template.layout.replaces("coreLayout");
+//Template.layout.replaces("coreLayout");
 Template.indieLayoutHeader.replaces("layoutHeader");
 Template.indieCoreNavigationBar.replaces("CoreNavigationBar");
 Template.indieProducts.replaces("products");

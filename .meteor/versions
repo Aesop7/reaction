@@ -54,7 +54,6 @@ cfs:worker@0.1.4
 check@1.2.1
 chuangbo:cookie@1.1.0
 coffeescript@1.0.17
-cosmos:browserify@0.8.4
 custom-reminders@0.0.1
 custom-transformicons@0.0.1
 ddp@1.2.5
@@ -102,6 +101,7 @@ mdg:validated-method@1.0.2
 mdg:validation-error@0.2.0
 meteor@1.1.14
 meteor-base@1.0.4
+meteor-platform@1.2.6
 meteorhacks:fast-render@2.14.0
 meteorhacks:inject-data@2.0.0
 meteorhacks:meteorx@1.4.1
