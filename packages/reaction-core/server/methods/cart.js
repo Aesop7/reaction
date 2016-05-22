@@ -374,6 +374,7 @@ Meteor.methods({
           quantity: quantity,
           recipients: [recipient],
           variants: variant,
+          title: product.title,
           type: product.type
         }
       }
