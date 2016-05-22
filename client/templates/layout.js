@@ -12,7 +12,7 @@
 //Template.layout.replaces("coreLayout");
 Template.indieLayoutHeader.replaces("layoutHeader");
 Template.indieCoreNavigationBar.replaces("CoreNavigationBar");
-Template.indieProducts.replaces("products");
+//Template.indieProducts.replaces("products");
 Template.indieHeaderBrand.replaces("headerBrand");
 Template.customPDP.replaces("productDetail");
 Template.indieOrdersList.replaces("dashboardOrdersList");
