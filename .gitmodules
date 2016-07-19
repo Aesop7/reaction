@@ -1,3 +1,0 @@
-[submodule "packages/custom-reminders"]
-	path = packages/custom-reminders
-	url = git@github.com:Aesop7/custom-reminders.git

@@ -23,6 +23,11 @@ import "/imports/plugins/included/authnet/client";
 import "/imports/plugins/included/braintree/client";
 
 /**
+ * Custom Plugins
+ */
+import "/imports/plugins/custom/custom-reminders/client";
+
+/**
  * Themes
  */
-import "/imports/themes/default";
+// import "/imports/themes/default";
