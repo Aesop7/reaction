@@ -26,6 +26,11 @@ import "/imports/plugins/included/authnet/server";
 import "/imports/plugins/included/braintree/server";
 
 /**
+ * Custom Plugin imports
+ */
+import '/imports/plugins/custom/custom-reminders/server';
+
+/**
  * Plugin Registry
  */
 import "/imports/plugins/core/checkout/register";
@@ -45,3 +50,8 @@ import "/imports/plugins/included/stripe/register";
 import "/imports/plugins/included/example-paymentmethod/register";
 import "/imports/plugins/included/authnet/register";
 import "/imports/plugins/included/braintree/register";
+
+/**
+ * Custom Plugin Register
+ */
+import "/imports/plugins/custom/custom-reminders/register";

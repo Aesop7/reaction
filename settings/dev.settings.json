@@ -8,5 +8,11 @@
     "REACTION_EMAIL": ""
   },
   "isDebug": "info",
-  "public": {}
+  "public": {},
+  "facebook": {
+    "foo": "bar"
+  },
+  "google": {
+    "foo": "bar"
+  }
 }
