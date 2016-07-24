@@ -111,19 +111,19 @@ Meteor.startup(() => {
         packageNamespaces.push(pkg.name);
       }
 
-      // use i18n detected language to getLocale info
-      Meteor.call("shop/getLocale", (error, result) => {
-        if (result) {
-          const locale = result;
-          locale.language = getBrowserLanguage();
-          moment.locale(locale.language);
-          Reaction.Locale.set(locale);
-          localeDep.changed();
-
-          // Stop the tracker
-          c.stop();
-        }
-      });
+      // // use i18n detected language to getLocale info
+      // Meteor.call("shop/getLocale", (error, result) => {
+      //   if (result) {
+      //     const locale = result;
+      //     locale.language = getBrowserLanguage();
+      //     moment.locale(locale.language);
+      //     Reaction.Locale.set(locale);
+      //     localeDep.changed();
+      //
+      //     // Stop the tracker
+      //     c.stop();
+      //   }
+      // });
     }
   });
 });

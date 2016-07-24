@@ -11,7 +11,7 @@ ReactionEmailTemplate = function (template) {
   let source;
   let lang = "en";
 
-  const shopLocale = Meteor.call("shop/getLocale");
+  // const shopLocale = Meteor.call("shop/getLocale");
 
   if (shopLocale && shopLocale.locale && shopLocale.locale.languages) {
     lang = shopLocale.locale.languages;
