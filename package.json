@@ -19,7 +19,8 @@
     "url": "https://github.com/reactioncommerce/reaction/issues"
   },
   "scripts": {
-    "postinstall": ".reaction/scripts/postinstall.sh"
+    "postinstall": ".reaction/scripts/postinstall.sh",
+    "deploy": "meteor deploy dev.quillandpigeon.com --settings settings/prod.settings.json --owner qp1"
   },
   "dependencies": {
     "velocityjs": "^0.8.5",
