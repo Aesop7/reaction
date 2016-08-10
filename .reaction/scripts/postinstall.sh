@@ -12,3 +12,4 @@ bash .reaction/docker/scripts/plugin-loader.sh
 
 # copy custom plugins public dir
 cp -R imports/plugins/custom/custom-reminders/public/** ./public/custom
+cp -R node_modules/bootstrap/fonts ./public/
