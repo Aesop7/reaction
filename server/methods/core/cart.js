@@ -341,8 +341,12 @@ Meteor.methods({
     if (cartVariantExists) {
       return Collections.Cart.update({
         "_id": cart._id,
-        "items.variants._id": variantId,
-        "items.recipientId": recipientId,
+        "items": {
+          $elemMatch: {
+            "variants._id": variantId,
+            "recipientId": recipientId
+          }
+        }
       }, {
         $inc: {
           "items.$.quantity": quantity
