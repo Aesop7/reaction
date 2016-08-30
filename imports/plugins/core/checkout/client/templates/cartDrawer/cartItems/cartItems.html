@@ -20,7 +20,17 @@
     <div class="badge badge-low-inv-warning" title="{{variants.inventoryQuantity}}" data-i18n="cartDrawerItems.left">!</div>
     {{/if}}
     <span class="badge">{{quantity}}</span>
-    <span class="cart-item-title">{{title}} <small>{{variants.title}}</small></span>
+    <span class="cart-item-title">{{title}} <small>{{variants.title}}</small>
+      <p>
+        <small>
+          {{#with recipient}}
+            {{recipient.firstname}} {{recipient.lastname}}
+          {{else}}
+            Blank Envelope
+          {{/with}}
+        </small>
+      </p>
+    </span>
   </div>
 </div>
 </template>

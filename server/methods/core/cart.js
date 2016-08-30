@@ -287,11 +287,13 @@ Meteor.methods({
    *  @param {String} productId - productId to add to Cart
    *  @param {String} variantId - product variant _id
    *  @param {Number} [itemQty] - qty to add to cart
+   *  @param {String} recipientId - product recipient _id
    *  @return {Number|Object} Mongo insert response
    */
-  "cart/addToCart": function (productId, variantId, itemQty) {
+  "cart/addToCart": function (productId, variantId, itemQty, recipientId) {
     check(productId, String);
     check(variantId, String);
+    check(recipientId, Match.Maybe(String));
     check(itemQty, Match.Optional(Number));
 
     const cart = Collections.Cart.findOne({ userId: this.userId });
@@ -334,12 +336,13 @@ Meteor.methods({
     const quantity = quantityProcessing(product, variant, itemQty);
     // performs search of variant inside cart
     const cartVariantExists = cart.items && cart.items
-      .some(item => item.variants._id === variantId);
+      .some(item => item.variants._id === variantId && item.recipientId === recipientId);
 
     if (cartVariantExists) {
       return Collections.Cart.update({
         "_id": cart._id,
-        "items.variants._id": variantId
+        "items.variants._id": variantId,
+        "items.recipientId": recipientId,
       }, {
         $inc: {
           "items.$.quantity": quantity
@@ -358,7 +361,7 @@ Meteor.methods({
         // reset selected shipment method
         Meteor.call("cart/resetShipmentMethod", cart._id);
 
-        Logger.info(`cart: increment variant ${variantId} quantity by ${
+        Logger.info(`cart: increment variant ${variantId} with recipientId ${recipientId} quantity by ${
           quantity}`);
 
         return result;
@@ -372,6 +375,7 @@ Meteor.methods({
       $addToSet: {
         items: {
           _id: Random.id(),
+          recipientId,
           shopId: product.shopId,
           productId: productId,
           quantity: quantity,
@@ -395,7 +399,7 @@ Meteor.methods({
       // reset selected shipment method
       Meteor.call("cart/resetShipmentMethod", cart._id);
 
-      Logger.info(`cart: add variant ${variantId} to cartId ${cart._id}`);
+      Logger.info(`cart: add variant ${variantId} with recipientId ${recipientId} to cartId ${cart._id}`);
 
       return result;
     });
@@ -464,8 +468,7 @@ Meteor.methods({
           return error;
         }
         if (result) {
-          Logger.info(`cart: deleted cart item variant id ${
-            cartItem.variants._id}`);
+          Logger.info(`cart: deleted cart item variant id ${cartItem.variants._id} with recipientId ${cartItem.recipientId}`);
           return result;
         }
       });
