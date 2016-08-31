@@ -6,7 +6,7 @@ import { Template } from "meteor/templating";
 import { ReactiveVar } from "meteor/reactive-var";
 import { Reaction, i18next, Logger } from "/client/api";
 import { NumericInput } from "/imports/plugins/core/ui/client/components";
-import { Media, Orders, Shops } from "/lib/collections";
+import { Media, Orders, Shops, Accounts } from "/lib/collections";
 import _ from "lodash";
 
 //
@@ -393,5 +393,12 @@ Template.coreOrderShippingInvoice.helpers({
     }
 
     return false;
+  },
+
+  recipient(recipientId) {
+    if (recipientId) {
+      // TODO move this into a common location
+      return _.find(Accounts.findOne({ 'recipients.recipientId': recipientId }).recipients, { recipientId });
+    }
   }
 });

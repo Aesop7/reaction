@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { Media, Products } from "/lib/collections";
+import { Media, Products, Accounts } from "/lib/collections";
 import { Template } from "meteor/templating";
 
 /**
@@ -11,6 +11,12 @@ import { Template } from "meteor/templating";
 Template.cartDrawerItems.helpers({
   product: function () {
     return Products.findOne(this.productId);
+  },
+  recipient: function () {
+    if (this.recipientId) {
+      // TODO move this into a common location
+      return _.find(Accounts.findOne({ _id: Meteor.userId() }).recipients, { 'recipientId': this.recipientId });
+    }
   },
   media: function () {
     let product = Products.findOne(this.productId);
