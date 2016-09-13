@@ -14,6 +14,15 @@
 
         <div class="order-detail-title">
           {{title}} <small>{{variants.title}}</small>
+          <p>
+              <small>
+                {{#with recipient}}
+                  {{firstname}} {{lastname}}<br>
+                {{else}}
+                    Blank Envelope
+                {{/with}}
+              </small>
+          </p>
         </div>
 
         <div class="order-detail-quantity">

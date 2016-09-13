@@ -1,5 +1,6 @@
+import _ from "lodash";
 import { Template } from "meteor/templating";
-import { Media } from "/lib/collections";
+import { Media, Accounts } from "/lib/collections";
 import { NumericInput } from "/imports/plugins/core/ui/client/components";
 
 /**
@@ -26,6 +27,12 @@ Template.ordersListItems.helpers({
     return false;
   },
 
+  recipient: function () {
+    if (this.recipientId) {
+      return _.find(Accounts.findOne({ _id: Meteor.userId() }).recipients, { 'recipientId': this.recipientId });
+    }
+  },
+
   items() {
     const { order } = Template.instance().data;
     let combinedItems = [];
@@ -38,7 +45,8 @@ Template.ordersListItems.helpers({
         const foundItem = combinedItems.find((combinedItem) => {
           // If and item variant exists, then we return true
           if (combinedItem.variants) {
-            return combinedItem.variants._id === orderItem.variants._id;
+            return combinedItem.variants._id === orderItem.variants._id
+              && combinedItem.recipientId === orderItem.recipientId;
           }
 
           return false;
