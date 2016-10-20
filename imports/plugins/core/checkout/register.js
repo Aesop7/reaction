@@ -29,7 +29,7 @@ Reaction.registerPackage({
     structure: {
       template: "cartCheckout",
       layoutHeader: "checkoutHeader",
-      layoutFooter: "",
+      layoutFooter: "layoutFooter",
       notFound: "notFound",
       dashboardHeader: "",
       dashboardControls: "dashboardControls",

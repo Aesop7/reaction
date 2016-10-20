@@ -57,7 +57,7 @@ export default function () {
       structure: {
         template: "accountsDashboard",
         layoutHeader: "layoutHeader",
-        layoutFooter: "",
+        layoutFooter: "layoutFooter",
         notFound: "notFound",
         dashboardHeader: "dashboardHeader",
         dashboardControls: "",

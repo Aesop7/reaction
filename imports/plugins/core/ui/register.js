@@ -32,7 +32,7 @@ Reaction.registerPackage({
     structure: {
       template: "uiDashboard",
       layoutHeader: "layoutHeader",
-      layoutFooter: "",
+      layoutFooter: "layoutFooter",
       notFound: "notFound",
       dashboardHeader: "dashboardHeader",
       dashboardControls: "",
