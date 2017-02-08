@@ -20,7 +20,7 @@ export const cardSchema = new SimpleSchema({
 
 export const chargeObjectSchema = new SimpleSchema({
   amount: { type: Number },
-  currency: {type: String},
+  currency: { type: String },
   card: { type: cardSchema },
   capture: { type: Boolean }
 });
@@ -72,16 +72,14 @@ StripeApi.methods.createCharge = new ValidatedMethod({
       stripe = require("stripe")(apiKey);
     }
     try {
-      const chargePromise = stripe.charges.create(chargeObj, (error, result) => {
-        return { error, result };
-      });
+      const chargePromise = stripe.charges.create(chargeObj);
       const promiseResult = Promise.await(chargePromise);
       return promiseResult;
     } catch (e) {
       // Handle "expected" errors differently
       if (e.rawType === "card_error" && _.includes(expectedErrors, e.code)) {
         Logger.info("Error from Stripe is expected, not throwing");
-        return {error: e, result: null};
+        return { error: e, result: null };
       }
       Logger.error("Received unexpected error code: " + e.code);
       Logger.error(e);
@@ -105,9 +103,7 @@ StripeApi.methods.captureCharge = new ValidatedMethod({
     } else {
       stripe = require("stripe")(apiKey);
     }
-    const capturePromise = stripe.charges.capture(transactionId, captureDetails, (error, result) => {
-      return { error, result };
-    });
+    const capturePromise = stripe.charges.capture(transactionId, captureDetails);
     const captureResults = Promise.await(capturePromise);
     return captureResults;
   }
@@ -127,13 +123,7 @@ StripeApi.methods.createRefund = new ValidatedMethod({
     } else {
       stripe = require("stripe")(apiKey);
     }
-    const refundPromise = stripe.refunds.create({
-      charge: refundDetails.charge,
-      amount: refundDetails.amount
-    }, function (error, result) {
-      return { error, result };
-    });
-
+    const refundPromise = stripe.refunds.create({ charge: refundDetails.charge, amount: refundDetails.amount });
     const refundResults = Promise.await(refundPromise);
     return refundResults;
   }
@@ -153,10 +143,10 @@ StripeApi.methods.listRefunds = new ValidatedMethod({
     } else {
       stripe = require("stripe")(apiKey);
     }
-    const refundListPromise = stripe.refunds.list({ charge: transactionId }, (error, result) => {
-      return { error, result };
-    });
+    const refundListPromise = stripe.refunds.list({ charge: transactionId });
     const refundListResults = Promise.await(refundListPromise);
     return refundListResults;
   }
 });
+
+
