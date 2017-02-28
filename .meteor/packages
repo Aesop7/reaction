@@ -95,3 +95,4 @@ practicalmeteor:sinon
 mdg:geolocation
 velocityjs:velocityjs
 shell-server
+percolate:synced-cron
