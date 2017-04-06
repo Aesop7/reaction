@@ -102,7 +102,6 @@ function notifySegment(context) {
 }
 // google analytics page tracking
 function notifyGoogleAnalytics(context) {
-  console.log('banana');
   if (typeof ga !== "undefined") {
     ga("send", "pageview", context.path);
   }
